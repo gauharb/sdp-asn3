@@ -27,6 +27,13 @@ public class Main {
 
         checkSwitch();
 
+        check("T6", "Reminder + PushChannel",
+                new Reminder("r1", MSG, new PushChannel()).execute(),
+                "PUSH delivered: {title: Notification r1, text: REMINDER: " + MSG + "}");
+        check("T7", "UrgentAlert + PushChannel",
+                new UrgentAlert("u1", MSG, new PushChannel()).execute(),
+                "PUSH delivered: {title: Notification u1, text: URGENT: " + MSG + "}");
+
         System.out.println("SUMMARY: " + passed + "/" + total + " PASS");
     }
 
