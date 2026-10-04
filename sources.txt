@@ -3,3 +3,5 @@ src/Channel.java
 src/Notification.java
 src/Reminder.java
 src/UrgentAlert.java
+src/EmailChannel.java
+src/SmsChannel.java
