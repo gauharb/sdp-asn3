@@ -1,0 +1,9 @@
+T1 PASS | Reminder + EmailChannel | result=EMAIL delivered: [To: student@astanait.edu.kz | Subject: Notification r1 | Body: REMINDER: Submit Assignment 3 by 23:59]
+T2 PASS | Reminder + SmsChannel | result=SMS delivered: [SMS] REMINDER: Submit Assignment 3 by 23:59
+T3 PASS | UrgentAlert + EmailChannel | result=EMAIL delivered: [To: student@astanait.edu.kz | Subject: Notification u1 | Body: URGENT: Submit Assignment 3 by 23:59]
+T4 PASS | UrgentAlert + SmsChannel | result=SMS delivered: [SMS] URGENT: Submit Assignment 3 by 23:59
+T5 PASS | sameObject=true | stateUnchanged=true
+ before=EMAIL delivered: [To: student@astanait.edu.kz | Subject: Notification r1 | Body: REMINDER: Submit Assignment 3 by 23:59] | after=SMS delivered: [SMS] REMINDER: Submit Assignment 3 by 23:59
+T6 PASS | Reminder + PushChannel | result=PUSH delivered: {title: Notification r1, text: REMINDER: Submit Assignment 3 by 23:59}
+T7 PASS | UrgentAlert + PushChannel | result=PUSH delivered: {title: Notification u1, text: URGENT: Submit Assignment 3 by 23:59}
+SUMMARY: 7/7 PASS

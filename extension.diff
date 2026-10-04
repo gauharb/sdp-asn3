@@ -1,0 +1,33 @@
+diff --git a/src/Main.java b/src/Main.java
+index cdff6b6..3f83261 100644
+--- a/src/Main.java
++++ b/src/Main.java
+@@ -27,6 +27,13 @@ public class Main {
+ 
+         checkSwitch();
+ 
++        check("T6", "Reminder + PushChannel",
++                new Reminder("r1", MSG, new PushChannel()).execute(),
++                "PUSH delivered: {title: Notification r1, text: REMINDER: " + MSG + "}");
++        check("T7", "UrgentAlert + PushChannel",
++                new UrgentAlert("u1", MSG, new PushChannel()).execute(),
++                "PUSH delivered: {title: Notification u1, text: URGENT: " + MSG + "}");
++
+         System.out.println("SUMMARY: " + passed + "/" + total + " PASS");
+     }
+ 
+diff --git a/src/PushChannel.java b/src/PushChannel.java
+new file mode 100644
+index 0000000..5e7d7c4
+--- /dev/null
++++ b/src/PushChannel.java
+@@ -0,0 +1,9 @@
++public class PushChannel implements Channel {
++    @Override
++    public String format(String notificationId, String content) {
++        return "{title: Notification " + notificationId + ", text: " + content + "}";
++    }
++
++    @Override
++    public String deliver(String formatted) { return "PUSH delivered: " + formatted; }
++}
